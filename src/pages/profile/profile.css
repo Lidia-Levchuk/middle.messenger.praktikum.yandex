@@ -1,0 +1,65 @@
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  user-select: none;
+}
+.profile__wrapper {
+  display: grid;
+  padding: 15px 20px;
+  width: 510px;
+  gap: 40px;
+}
+.profile__back {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 18px;
+  width: 29px;
+  height: 100%;
+  background-color: var(--bg-second-color);
+  border-right: 1px solid var(--border-color);
+}
+.profile__face {
+  display: grid;
+  gap: 20px;
+}
+.profile__data .input {
+  padding: 0 0 10px;
+}
+.profile__data .input__label {
+  color: var(--text-color);
+}
+.profile__data .input__element:not(:placeholder-shown) + .input__label,
+.profile__data .input__element:focus + .input__label {
+  transform: translateY(-21px);
+  font-size: 13px;
+}
+.profile__data .input__element {
+  padding-bottom: 10px;
+  text-align: right;
+  color: var(--text-secondary-color);
+  border-bottom: 1px solid var(--text-secondary-color);
+}
+.profile__options .button__wrapper {
+  width: 320px;
+  margin: 40px auto 0;
+}
+.profile__options .button__left {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  text-align: left;
+  font-size: 13px;
+}
+.profile__options .button__left:last-of-type {
+  border-bottom: none;
+}
+.profile__options .button__red {
+  color: var(--error-color);
+}
+.button__save {
+  width: 280px;
+  margin: 60px auto 0;
+}

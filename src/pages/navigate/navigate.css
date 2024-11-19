@@ -1,0 +1,15 @@
+.nav__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+}
+.nav__link {
+  background: var(--main-color);
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: inline-block;
+  text-decoration: none;
+}

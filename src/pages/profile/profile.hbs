@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="profile__wrapper">
+    <div class="profile__back">
+      {{> Button arrow="true" side="left" page="nav"}}
+    </div>
+
+    <div class="profile__face">
+      {{> Avatar size="large" change="true" image=user.avatar}}
+      {{> Title text=user.firstName size="normal"}}
+    </div>
+
+    <form class="profile__data">
+      {{#if (not changePassword)}}
+        {{> Input label="Почта" name="email" value=user.email readonly="{{!changeUserData}}"}}
+        {{> Input label="Логин" name="login" value=user.login readonly="{{!changeUserData}}"}}
+        {{> Input label="Имя" name="first_name" value=user.firstName readonly="{{!changeUserData}}"}}
+        {{> Input label="Фамилия" name="second_name" value=user.secondName readonly="{{!changeUserData}}"}}
+        {{> Input label="Имя в чате" name="display_name" value=user.displayName readonly="{{!changeUserData}}"}}
+        {{> Input label="Телефон" name="phone" value=user.phone readonly="{{!changeUserData}}"}}
+      {{/if}}
+      {{#if changePassword}}
+        {{> Input label="Старый пароль" name="oldPassword" type="password"}}
+        {{> Input label="Новый пароль" name="newPassword" type="password"}}
+        {{> Input label="Повторите пароль" name="checkPassword" type="password"}}
+      {{/if}}
+      {{#if (or changeUserData changePassword)}}
+        <div class="button__wrapper">
+          {{> Button label="Сохранить" type="primary" class="button__save"}}
+        </div>
+      {{/if}}
+    </form>
+    {{#if (not (or changeUserData changePassword))}}
+      <div class="profile__options">
+        {{> Button label="Изменить данные" type="link" class="button__left"}}
+        {{> Button label="Изменить пароль" type="link" class="button__left"}}
+        {{> Button label="Выйти" type="link" class="button__left button__red"}}
+      </div>
+    {{/if}}
+  </div>
+
+  {{#if showDialog}}
+    {{> ChangeAvatarDialog}}
+  {{/if}}
+</div>

@@ -1,0 +1,11 @@
+{{#> Form}}
+  {{> Title text="Вход" size="normal"}}
+  <div class="input__wrapper">
+    {{> Input label="Логин" name="login"}}
+    {{> Input label="Пароль" name="password"}}
+  </div>
+  <div class="button__wrapper">
+    {{> Button label="Войти" type="primary"}}
+    {{> Button label="Регистрация" type="link" page="registration"}}
+  </div>
+{{/ Form}}
