@@ -1,0 +1,13 @@
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  user-select: none;
+}
+.form {
+  display: grid;
+  padding: 15px 20px;
+  width: 320px;
+  gap: 40px;
+}

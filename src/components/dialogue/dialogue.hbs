@@ -1,0 +1,29 @@
+<div class="dialogue">
+  <div class="dialogue__partner">
+    {{> Avatar image=info.conversation.participants.[0].avatarUrl size="small"}}
+    <div class="dialogue__name">
+      {{info.conversation.participants.[0].name}}
+    </div>
+    <div class="dialogue__menu"></div>
+  </div>
+  <div class="dialogue__messages">
+    <div class="message__date">{{formatDateTime info.conversation.messages.[0].timestamp "date"}}</div>
+    {{#each info.conversation.messages as |message|}}
+      <div class="message {{#if (isEqual message.senderId "partner")}}partnerMessage{{else}}userMessage{{/if}} {{#if (isEqual message.type "image")}}message__image{{/if}}">
+        {{#if (isEqual message.type "text")}}
+          {{message.content}}
+        {{else}}
+          <img src="{{message.attachment.url}}" alt="Изображение">
+        {{/if}}
+        <span class="messageDatetime">
+          {{formatDateTime message.timestamp "time"}}
+        </span>
+      </div>
+    {{/each}}
+  </div>
+  <form class="dialogue__sendMessage">
+    {{> Input name="sendMessageFile" type="file" class="sendMessage__attachment"}}
+    {{> Input placeholder="Сообщение" name="message" type="text" class="sendMessage__text"}}
+    {{> Button arrow="true" side="right"}}
+  </form>
+</div>

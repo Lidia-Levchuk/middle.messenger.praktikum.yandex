@@ -1,0 +1,36 @@
+.button {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  background-color: initial;
+  border: none;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.button__primary {
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 13px;
+}
+.button__link {
+  padding: 0;
+  padding-top: 14px;
+  color: var(--main-color);
+  font-size: 11px;
+  text-align: center;
+}
+.button-arrow {
+  height: 28px;
+  width: 28px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  background-image: url("@/assets/images/arrow_left.svg");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.button-arrow__right {
+  transform: rotate(180deg);
+}
