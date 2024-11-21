@@ -1,0 +1,17 @@
+.change-avatar-dialog .input__container {
+  height: auto;
+}
+.change-avatar-dialog .input__element {
+  display: none;
+}
+.change-avatar-dialog .input__element:not(:placeholder-shown) + .input__label {
+  transform: none;
+  margin: 0 auto;
+  width: 122px;
+  color: var(--main-color);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
