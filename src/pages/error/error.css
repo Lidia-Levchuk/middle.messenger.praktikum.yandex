@@ -1,0 +1,13 @@
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  user-select: none;
+}
+.error__wrapper {
+  display: grid;
+  padding: 15px 20px;
+  max-width: 675px;
+  gap: 40px;
+}

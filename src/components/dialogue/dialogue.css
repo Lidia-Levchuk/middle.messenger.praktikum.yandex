@@ -1,0 +1,164 @@
+.dialogue {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 54px 1fr 54px;
+  gap: 10px;
+  padding: 0 20px;
+}
+.dialogue__partner {
+  display: grid;
+  grid-template-columns: 54px 1fr 25px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.dialogue__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-overflow: ellipsis;
+}
+.dialogue__menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-image: url("@/assets/images/dialogue_menu.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  cursor: pointer;
+}
+.dialogue__menu:hover {
+  background-color: var(--bg-third-color);
+}
+.dialogue__messages {
+  height: calc(100vh - 128px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.dialogue__messages::before {
+  content: "";
+  flex: 1;
+}
+.message__date {
+  margin: 30px auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary-color);
+}
+.message {
+  position: relative;
+  max-width: 380px;
+  margin-bottom: 10px;
+  padding: 11px;
+  font-size: 12px;
+  color: var(--text-color);
+}
+.message::after {
+  content: '0000';
+  opacity: 0;
+}
+.partnerMessage {
+  background-color: var(--bg-fourth-color);
+  border-radius: 0 12px 12px 12px;
+}
+.userMessage {
+  background-color: var(--second-color);
+  border-radius: 12px 12px 0 12px;
+  margin-left: auto;
+}
+.message__image {
+  width: fit-content;
+  max-width: 402px;
+  padding: 0;
+  overflow: hidden;
+  background: var(--bg-main-color);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+.message__image::after {
+  display: none;
+}
+.message__image img {
+  display: block;
+}
+.messageDatetime {
+  position: absolute;
+  right: 11px;
+  bottom: 11px;
+  font-size: 9px;
+  line-height: 9px;
+  color: var(--text-secondary-color);
+}
+.message__image .messageDatetime {
+  width: 37px;
+  height: 9px;
+  padding: 2px 0 1px;
+  background-color: var(--bg-third-color);
+  text-align: center;
+  border-radius: 30px;
+}
+.userMessage .messageDatetime {
+  color: var(--main-color)
+}
+.userMessage .messageDatetime::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  bottom: 3px;
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+}
+.dialogue__sendMessage {
+  display: grid;
+  grid-template-columns: 32px 1fr 28px;
+  gap: 10px;
+  align-items: center;
+}
+.sendMessage__attachment {
+  padding: 0;
+}
+.sendMessage__attachment .input__container {
+  height: 32px;
+}
+.sendMessage__attachment input {
+  display: none;
+}
+.sendMessage__attachment .input__label {
+  width: 32px;
+  height: 32px;
+  background-image: url("@/assets/images/attachment_icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  cursor: pointer;
+}
+.sendMessage__attachment .input__element:not(:placeholder-shown)+.input__label {
+  transform: none;
+}
+.sendMessage__text {
+  padding: 0;
+}
+.sendMessage__text .input__container {
+  height: auto;
+}
+.sendMessage__text input {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: var(--bg-third-color);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.sendMessage__text input::placeholder {
+  color: var(--text-secondary-color);
+}
