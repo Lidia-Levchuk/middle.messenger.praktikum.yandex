@@ -1,0 +1,16 @@
+<div class="input
+  {{#if error}} input__error{{/if}}
+  {{#if class}} {{class}}{{/if}}" >
+  <label class="input__container">
+    <input
+      class="input__element"
+      {{#if readonly}}readonly{{/if}}
+      {{#if type}}type="{{type}}"{{/if}}
+      placeholder="{{placeholder}}"
+      name="{{name}}"
+      value="{{value}}"
+    />
+    <div class="input__label">{{label}}</div>
+    <div class="input__text-error">Ошибка валидации</div>
+  </label>
+</div>

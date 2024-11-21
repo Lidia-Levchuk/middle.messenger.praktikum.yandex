@@ -1,0 +1,24 @@
+<div class="list">
+  <div class="list__wrapper">
+    <div class="list__left-side">
+      {{> Button page="profile" label="Профиль" class="list__profile-button"}}
+      <form>
+        {{> Input type="text" placeholder="Поиск" name="" class="list__search-input"}}
+      </form>
+      {{> ListUser users=users}}
+    </div>
+    <div class="list__rigth-side">
+      {{#if isDialogueOpen}}
+        {{> Dialogue info=dialogueOpenInfo}}
+      {{else}}
+        <div class="list__stub">
+          Выберите чат, чтобы отправить сообщение
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
+  {{#if showDialog}}
+    {{> ConfirmationDialog}}
+  {{/if}}
+</div>
