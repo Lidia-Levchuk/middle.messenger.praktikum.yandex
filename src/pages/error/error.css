@@ -5,6 +5,7 @@
   height: 100%;
   user-select: none;
 }
+
 .error__wrapper {
   display: grid;
   padding: 15px 20px;
