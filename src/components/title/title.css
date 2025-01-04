@@ -4,15 +4,19 @@
   text-align: center;
   margin: 0;
 }
+
 .title__large {
   font-size: 40px;
 }
+
 .title__normal {
   font-size: 20px;
 }
+
 .title__medium {
   font-size: 16px;
 }
+
 .title__small {
   font-size: 13px;
 }

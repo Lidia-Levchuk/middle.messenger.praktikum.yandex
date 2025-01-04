@@ -3,25 +3,28 @@
   --second-color: #BEFFC3;
   --error-color: #ff2f2f;
   --text-color: #1E1E1E;
-  --text-secondary-color: #999999;
-  --text-third-color: #FFFFFF;
-  --bg-main-color: #FFFFFF;
+  --text-secondary-color: #999;
+  --text-third-color: #FFF;
+  --bg-main-color: #FFF;
   --bg-second-color: #FBFBFB;
   --bg-third-color: #EFEFEF;
   --bg-fourth-color: #F8F8F8;
   --border-color: #EAEAEA;
 }
+
 html,
 body,
 main,
 .content {
   height: 100%;
 }
+
 body {
   margin: 0;
   padding: 0;
   background: var(--bg-main-color);
 }
+
 body * {
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
 }

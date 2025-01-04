@@ -8,19 +8,22 @@
   border-radius: 8px;
   cursor: pointer;
 }
-.button__primary {
+
+.button--primary {
   background-color: var(--main-color);
   color: #fff;
   font-size: 13px;
 }
-.button__link {
+
+.button--secondary {
   padding: 0;
   padding-top: 14px;
   color: var(--main-color);
   font-size: 11px;
   text-align: center;
 }
-.button-arrow {
+
+.button--arrow {
   height: 28px;
   width: 28px;
   position: relative;
@@ -31,6 +34,71 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-.button-arrow__right {
+
+.button--arrow-right {
   transform: rotate(180deg);
+}
+
+.button--profile {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  text-align: left;
+  font-size: 13px;
+}
+
+.button--last {
+  border-bottom: none;
+}
+
+.button--red {
+  color: var(--error-color);
+}
+
+.button--fix-size {
+  width: 280px;
+  margin: 60px auto 0;
+}
+
+.button--list-arrow {
+  position: relative;
+  width: 70px;
+  margin-left: auto;
+  margin-right: 10px;
+  padding-right: 10px;
+  color: var(--text-secondary-color);
+  font-size: 12px;
+}
+
+.button--list-arrow::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: rotate(45deg) translateY(-50%);
+  border-top: 1px solid var(--text-secondary-color);
+  border-right: 1px solid var(--text-secondary-color);
+}
+
+.button--dialogue-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  border-radius: 50%;
+  background-image: url("@/assets/images/dialogue_menu.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.button--dialogue-menu:hover,
+.button--dialogue-menu.active {
+  background-color: var(--bg-third-color);
 }

@@ -1,1 +1,1 @@
-export { default as ConfirmationDialog } from "./confirmation-dialog.hbs?raw";
+export { default as ConfirmationDialog } from "./confirmationDialog";

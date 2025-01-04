@@ -1,9 +1,11 @@
 .change-avatar-dialog .input__container {
   height: auto;
 }
+
 .change-avatar-dialog .input__element {
   display: none;
 }
+
 .change-avatar-dialog .input__element:not(:placeholder-shown) + .input__label {
   transform: none;
   margin: 0 auto;

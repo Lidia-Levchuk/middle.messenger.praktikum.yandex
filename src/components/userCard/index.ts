@@ -1,3 +1,3 @@
-import "./user-card.css";
+import "./userCard.css";
 
-export { default as UserCard } from "./user-card.hbs?raw";
+export { default as UserCard } from "./userCard";

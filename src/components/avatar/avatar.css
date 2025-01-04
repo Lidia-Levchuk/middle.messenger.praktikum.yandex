@@ -6,14 +6,17 @@
   margin: 0 auto;
   border-radius: 50%;
 }
+
 .image__large {
   width: 130px;
   height: 130px;
 }
+
 .image__small {
   width: 32px;
   height: 32px;
 }
+
 .image {
   display: block;
   width: 100%;
@@ -21,6 +24,7 @@
   object-fit: cover;
   text-align: center;
 }
+
 .image__change {
   opacity: 0;
   display: flex;
@@ -39,6 +43,7 @@
   text-align: center;
   cursor: pointer;
 }
+
 .image__container:hover .image__change {
   opacity: 1;
 }

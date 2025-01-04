@@ -5,6 +5,7 @@
   gap: 10px;
   padding: 0 20px;
 }
+
 .dialogue__partner {
   display: grid;
   grid-template-columns: 54px 1fr 25px;
@@ -13,44 +14,47 @@
   padding: 10px 0;
   border-bottom: 1px solid var(--border-color);
 }
+
 .dialogue__name {
   font-size: 13px;
   font-weight: 600;
   color: var(--text-color);
   text-overflow: ellipsis;
 }
-.dialogue__menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-image: url("@/assets/images/dialogue_menu.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
+
+.dialogue__menu_wrapper {
+  display: grid;
+  row-gap: 16px;
+  width: 180px;
+  position: fixed;
+  top: 65px;
+  right: 10px;
+  padding: 15px;
+  border-radius: 12px;
+  background: var(--bg-main-color);
+  box-shadow: 0 0 6px 0 #00000024;
   cursor: pointer;
 }
-.dialogue__menu:hover {
-  background-color: var(--bg-third-color);
-}
+
 .dialogue__messages {
   height: calc(100vh - 128px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
+
 .dialogue__messages::before {
   content: "";
   flex: 1;
 }
+
 .message__date {
   margin: 30px auto;
   font-size: 12px;
   font-weight: 500;
   color: var(--text-secondary-color);
 }
+
 .message {
   position: relative;
   max-width: 380px;
@@ -59,19 +63,23 @@
   font-size: 12px;
   color: var(--text-color);
 }
+
 .message::after {
-  content: '0000';
+  content: "0000";
   opacity: 0;
 }
-.partnerMessage {
+
+.partner-message {
   background-color: var(--bg-fourth-color);
-  border-radius: 0 12px 12px 12px;
+  border-radius: 0 12px 12px;
 }
-.userMessage {
+
+.user-message {
   background-color: var(--second-color);
-  border-radius: 12px 12px 0 12px;
+  border-radius: 12px 12px 0;
   margin-left: auto;
 }
+
 .message__image {
   width: fit-content;
   max-width: 402px;
@@ -81,13 +89,16 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
+
 .message__image::after {
   display: none;
 }
+
 .message__image img {
   display: block;
 }
-.messageDatetime {
+
+.message-datetime {
   position: absolute;
   right: 11px;
   bottom: 11px;
@@ -95,7 +106,8 @@
   line-height: 9px;
   color: var(--text-secondary-color);
 }
-.message__image .messageDatetime {
+
+.message__image .message-datetime {
   width: 37px;
   height: 9px;
   padding: 2px 0 1px;
@@ -103,11 +115,13 @@
   text-align: center;
   border-radius: 30px;
 }
-.userMessage .messageDatetime {
+
+.user-message .message-datetime {
   color: var(--main-color)
 }
-.userMessage .messageDatetime::after {
-  content: '';
+
+.user-message .message-datetime::after {
+  content: "";
   position: absolute;
   right: -6px;
   bottom: 3px;
@@ -117,22 +131,27 @@
   border-radius: 50%;
   background-color: var(--main-color);
 }
-.dialogue__sendMessage {
+
+.dialogue__send-message {
   display: grid;
-  grid-template-columns: 32px 1fr 28px;
+  grid-template-columns: 1fr 28px;
   gap: 10px;
   align-items: center;
 }
-.sendMessage__attachment {
+
+.send-message__attachment {
   padding: 0;
 }
-.sendMessage__attachment .input__container {
+
+.send-message__attachment .input__container {
   height: 32px;
 }
-.sendMessage__attachment input {
+
+.send-message__attachment input {
   display: none;
 }
-.sendMessage__attachment .input__label {
+
+.send-message__attachment .input__label {
   width: 32px;
   height: 32px;
   background-image: url("@/assets/images/attachment_icon.svg");
@@ -141,24 +160,11 @@
   background-position: center center;
   cursor: pointer;
 }
-.sendMessage__attachment .input__element:not(:placeholder-shown)+.input__label {
+
+.send-message__attachment .input__element:not(:placeholder-shown)+.input__label {
   transform: none;
 }
-.sendMessage__text {
+
+.send-message__text {
   padding: 0;
-}
-.sendMessage__text .input__container {
-  height: auto;
-}
-.sendMessage__text input {
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
-  background-color: var(--bg-third-color);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-color);
-}
-.sendMessage__text input::placeholder {
-  color: var(--text-secondary-color);
 }

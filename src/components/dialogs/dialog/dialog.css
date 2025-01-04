@@ -1,26 +1,32 @@
 .dialog-container {
-  background-color: rgba(0, 0, 0, .7);
+  background-color: #000000b3;
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
+  left: 0;
 }
+
 .dialog {
-  background-color: white;
+  background-color: #fff;
   border-radius: 12px ;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   min-width: 340px;
+  width: min-content;
   padding: 40px;
 }
+
 .dialog__body {
   padding: 45px 0;
 }
-.dialog__no-content {
+
+.dialog--no-content {
   padding: 20px 0;
 }
+
 .dialog__footer {
   display: flex;
   flex-direction: column;

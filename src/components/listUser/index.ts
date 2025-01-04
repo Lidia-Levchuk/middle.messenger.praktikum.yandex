@@ -1,3 +1,3 @@
-import "./list-user.css";
+import "./listUser.css";
 
-export { default as ListUser } from "./list-user.hbs?raw";
+export { default as ListUser } from "./listUser";
