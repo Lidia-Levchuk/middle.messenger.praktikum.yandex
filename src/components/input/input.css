@@ -1,20 +1,29 @@
 .input {
   padding: 10px 0;
 }
+
 .input__container {
   display: flex;
   height: 38px;
   flex-direction: column;
   align-content: flex-end;
+  position: relative;
 }
+
 .input__label {
   transform: translateY(-21px);
   color: var(--text-secondary-color);
   font-size: 13px;
+  line-height: 1.5;
   font-weight: 500;
   user-select: none;
-  transition: font-size 0.5s, transform 0.5s;
+  cursor: pointer;
 }
+
+.input__label--black {
+  color: var(--text-color);
+}
+
 .input__element {
   border: none;
   padding: 0%;
@@ -24,24 +33,105 @@
   color: var(--text-color);
   padding-bottom: 7px;
 }
+
 .input__element:focus-visible {
   outline: none;
 }
+
 .input__text-error {
-  transform: translateY(-7px);
   color: var(--error-color);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 400;
-  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
+
+.input__element + .input__label + .input__text-error {
+  bottom: -5px;
+}
+
 .input__element:not(:placeholder-shown) + .input__label,
 .input__element:focus + .input__label {
   transform: translateY(-36px);
   font-size: 9px;
 }
-.input__error .input__text-error {
-  display: block;
-}
+
 .input__error .input__element {
   color: var(--error-color);
+}
+
+.input.profile__style {
+  padding: 0 0 10px;
+}
+
+.input__element.profile__style:not(:placeholder-shown) + .input__label,
+.input__element.profile__style:focus + .input__label {
+  transform: translateY(-21px);
+  font-size: 13px;
+}
+
+.input__element.profile__style {
+  padding-bottom: 10px;
+  text-align: right;
+  color: var(--text-secondary-color);
+  border-bottom: 1px solid var(--text-secondary-color);
+}
+
+.input--no-events {
+  pointer-events: none;
+}
+
+.input--search input {
+  padding: 10px 10px 10px 35px;
+  border-radius: 5px;
+  background-color: var(--bg-third-color);
+  border: none;
+  font-size: 12px;
+}
+
+.input--search {
+  position: relative;
+  height: 35px;
+}
+
+.input--search::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("@/assets/images/search_icon.svg");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.input--search::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.send-message__text {
+  padding: 0;
+}
+
+.input--message {
+  height: auto;
+}
+
+.input--message input {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: var(--bg-third-color);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.input--message input::placeholder  {
+  color: var(--text-secondary-color);
 }

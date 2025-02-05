@@ -1,3 +1,3 @@
-import "./list.css"
+import "./list.css";
 
-export { default as ListPage } from "./list.hbs?raw";
+export { default as ListPage } from "./list";

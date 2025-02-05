@@ -3,6 +3,7 @@
   margin: 0;
   padding: 20px;
 }
+
 .nav__link {
   background: var(--main-color);
   color: #fff;

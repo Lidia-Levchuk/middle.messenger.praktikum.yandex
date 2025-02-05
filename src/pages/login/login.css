@@ -1,0 +1,6 @@
+.login-form {
+  display: grid;
+  padding: 15px 20px;
+  width: 320px;
+  gap: 40px;
+}

@@ -6,19 +6,30 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "tsc && vite build",
-    "start": "npm run build && vite preview --port 3000"
+    "start": "npm run build && vite preview --port 3000",
+    "lint:eslint": "eslint .",
+    "lint:style": "stylelint '**/*.css'",
+    "lint:ts": "tsc --noEmit",
+    "lint": "npm run lint:eslint && npm run lint:style && npm run lint:ts"
   },
   "devDependencies": {
-    "@types/node": "^22.9.0",
+    "@types/node": "^16.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
+    "eslint": "^8.5.0",
     "handlebars": "4.7.8",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "nanoid": "^5.0.8",
+    "postcss": "^8.4.49",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^30.0.1",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.0",
+    "vite-plugin-handlebars": "^2.0.0"
   },
   "dependencies": {
-    "postcss": "^8.4.49",
-    "vite-plugin-handlebars": "^2.0.0"
+    "nanoid": "^5.0.8"
   },
   "engines": {
     "node": "^16.0.0"
