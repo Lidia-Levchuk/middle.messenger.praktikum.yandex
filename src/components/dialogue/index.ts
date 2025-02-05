@@ -1,3 +1,3 @@
-import "./dialogue.css"
+import "./dialogue.css";
 
-export { default as Dialogue } from "./dialogue.hbs?raw";
+export { default as Dialogue } from "./dialogue";

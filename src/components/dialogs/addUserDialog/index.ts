@@ -1,1 +1,1 @@
-export { default as AddUserDialog } from "./add-user-dialog.hbs?raw";
+export { default as AddUserDialog } from "./addUserDialog";

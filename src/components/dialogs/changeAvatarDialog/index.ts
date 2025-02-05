@@ -1,3 +1,3 @@
-import "./change-avatar-dialog.css";
+import "./changeAvatarDialog.css";
 
-export { default as ChangeAvatarDialog } from "./change-avatar-dialog.hbs?raw";
+export { default as ChangeAvatarDialog } from "./changeAvatarDialog";
