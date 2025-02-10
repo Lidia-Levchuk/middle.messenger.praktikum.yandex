@@ -3,14 +3,23 @@ import { Title, Input, Button } from "../../components";
 import { validateEmail, validateLogin, validateName, validatePhone, validatePassword, validatePasswordConfirmation } from "../../validation";
 
 import Block from "../../core/block";
+import Router from "../../core/router";
+import { UNAUTH_ROUTES } from "../../constants"
+import { withRouter } from "../../utils/withRouter"
+import { connect } from "../../utils/connect"
+import * as authServices from "../../services/auth"
 
 interface ValidationResult {
   isValid: boolean;
   errorMessage?: string;
 }
 
-export default class Registration extends Block {
-  constructor(props: Record<string, unknown>) {
+interface RegistrationProps {
+  router: Router;
+}
+
+class Registration extends Block {
+  constructor(props: RegistrationProps) {
     super("div", {
       ...props,
       attrs: {
@@ -189,6 +198,8 @@ export default class Registration extends Block {
               password: passwordValue,
             };
             console.log("Форма валидна", form);
+
+            authServices.signup(form);
           } else {
             console.log("Ошибки валидации:", {
               emailError: emailValidation.errorMessage,
@@ -205,7 +216,12 @@ export default class Registration extends Block {
       SignInButton: new Button({
         style: "secondary",
         label: "Войти",
-        page: "login",
+        onClick: (e: Event) => {
+          e.preventDefault();
+          const route = UNAUTH_ROUTES.find(route => route.component === "LoginPage");
+          console.log('6 go');
+          props.router.go(route ? route.path : "")
+        }
       }),
     });
   }
@@ -214,6 +230,9 @@ export default class Registration extends Block {
     return `
       <form class="login-form">
         {{{ RegistrationTitle }}}
+        {{#if registrationError}}
+          <p class="login__error">{{ registrationError }}</p>
+        {{/if}}
         <div class="input__wrapper">
           {{{ EmailInput }}}
           {{{ LoginInput }}}
@@ -231,3 +250,8 @@ export default class Registration extends Block {
     `;
   }
 }
+
+export default withRouter(connect(({isLoading, registrationError}) => ({
+  isLoading,
+  registrationError
+}))(Registration));

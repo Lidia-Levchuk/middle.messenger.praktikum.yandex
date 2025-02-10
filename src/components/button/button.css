@@ -102,3 +102,8 @@
 .button--dialogue-menu.active {
   background-color: var(--bg-third-color);
 }
+
+.button--disabed {
+  pointer-events: none !important;
+  opacity: 0.5 !important;
+}

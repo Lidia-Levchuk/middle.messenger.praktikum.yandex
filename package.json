@@ -13,6 +13,7 @@
     "lint": "npm run lint:eslint && npm run lint:style && npm run lint:ts"
   },
   "devDependencies": {
+    "@types/handlebars": "^4.1.0",
     "@types/node": "^16.11.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",

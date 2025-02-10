@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import Handlebars from "handlebars";
 import EventBus from "./eventBus";
-
+import isEqual from '../utils/isEqual';
 interface Props {
   className?: string;
   attrs?: Record<string, string>;
@@ -19,6 +19,7 @@ export default class Block {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
     FLOW_CDU: "flow:component-did-update",
+    FLOW_CDUN: "flow:component-did-unmount",
     FLOW_RENDER: "flow:render",
   };
 
@@ -57,6 +58,7 @@ export default class Block {
     //eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+    eventBus.on(Block.EVENTS.FLOW_CDUN, this._componentDidUnmount.bind(this));
   }
 
   private _createResources(): void {
@@ -120,19 +122,18 @@ export default class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  //private _componentDidUpdate(oldProps: Props, newProps: Props): void {
-  private _componentDidUpdate(): void {
-    //const response = this.componentDidUpdate(oldProps, newProps);
-    const response = this.componentDidUpdate();
+  private _componentDidUpdate(oldProps: Props, newProps: Props): void {
+    const response = this.componentDidUpdate(oldProps, newProps);
     if (!response) {
       return;
     }
     this._render();
   }
 
-  //componentDidUpdate(oldProps: Props, newProps: Props): boolean {
-    componentDidUpdate(): boolean {
-    return true;
+  componentDidUpdate(oldProps: Props, newProps: Props): boolean {
+    const needUpdate = !isEqual(oldProps, newProps);
+    //console.log('componentDidUpdate', needUpdate)
+    return needUpdate;
   }
 
   protected updateChildrenProps(children: Block | Block[], props: Props) {
@@ -273,7 +274,18 @@ export default class Block {
     const element = document.createElement(tagName);
     element.setAttribute("data-id", this._id);
     return element;
-}
+  }
+
+  private _componentDidUnmount(): void {
+    this._removeEvents();
+  }
+
+  public componentDidUnmount(): void {
+    this.eventBus().emit(Block.EVENTS.FLOW_CDUN);
+    if (this._element && this._element.parentNode) {
+      this._element.parentNode.removeChild(this._element);
+    }
+  }
 
   show(): void {
     const content = this.getContent();

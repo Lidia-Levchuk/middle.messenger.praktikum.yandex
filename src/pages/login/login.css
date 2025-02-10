@@ -3,4 +3,16 @@
   padding: 15px 20px;
   width: 320px;
   gap: 40px;
+  position: relative;
+}
+.login__error {
+  margin: 0 auto;
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: var(--error-color);
 }
