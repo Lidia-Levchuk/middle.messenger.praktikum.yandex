@@ -63,6 +63,7 @@ class HTTPTransport {
       }
 
       const xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
       const isGet = method === METHODS.GET;
 
       const fullUrl = `${this.baseURL}${url}`;

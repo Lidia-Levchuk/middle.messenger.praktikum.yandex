@@ -6,17 +6,12 @@ import * as Constants from "./constants";
 import Router from "./core/router";
 import { Store } from "./core/store";
 import * as authServices from "./services/auth"
-import * as Cookie from "./utils/cookie"
 
 Object.entries(Components).forEach(([name, template]) => {
   if (typeof template !== "function") {
     Handlebars.registerPartial(name, template);
   }
 });
-
-if (!Cookie.hasCookie("isLoggedIn")) {
-  Cookie.setCookie("isLoggedIn", "false");
-}
 
 window.store = new Store({
   isLoading: false,
@@ -26,7 +21,7 @@ window.store = new Store({
     text: Constants.ERROR_PAGE_TEXT_404
   },
 
-  isLoggedIn: Cookie.getCookie("isLoggedIn") === "true",
+  isLoggedIn: false,
   loginError: "",
   registrationError: ""
 });

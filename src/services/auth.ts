@@ -1,7 +1,6 @@
 import AuthApi from "../api/auth";
 import { APIError, LoginRequestData, CreateUser } from "../api/type"
 import { AUTH_ROUTES, MAIN_ROUTS } from "../constants"
-import * as Cookie from "../utils/cookie"
 
 const authApi = new AuthApi();
 
@@ -12,7 +11,6 @@ export const signup = async (model: CreateUser) => {
 
     await authApi.signup(model);
     window.store.set({isLoggedIn: true});
-    Cookie.setCookie("isLoggedIn","true");
 
     const redirectRout = AUTH_ROUTES.find(r => r.component === MAIN_ROUTS.auth) || { path: "" };
     window.router.go(redirectRout.path);
@@ -25,7 +23,6 @@ export const signup = async (model: CreateUser) => {
     }
 
     window.store.set({isLoggedIn: false});
-    Cookie.setCookie("isLoggedIn","false");
   } finally {
     window.store.set({isLoading: false});
   }
@@ -39,7 +36,6 @@ export const signin = async (model: LoginRequestData) => {
     await authApi.signin(model);
      
     window.store.set({isLoggedIn: true});
-    Cookie.setCookie("isLoggedIn","true");
 
     const redirectRout = AUTH_ROUTES.find(r => r.component === MAIN_ROUTS.auth) || { path: "" };
     window.router.go(redirectRout.path);
@@ -52,7 +48,6 @@ export const signin = async (model: LoginRequestData) => {
     }
     
     window.store.set({isLoggedIn: false});
-    Cookie.setCookie("isLoggedIn","false");
   } finally {
     window.store.set({isLoading: false});
   }
@@ -64,16 +59,13 @@ export const user = async () => {
     await authApi.user();
     
     window.store.set({isLoggedIn: true});
-    Cookie.setCookie("isLoggedIn","true");
   } catch (responseError) {
     const error = responseError as APIError;
     console.log(error.reason);
     
     window.store.set({isLoggedIn: false});
-    Cookie.setCookie("isLoggedIn","false");
-
-    console.log(typeof Cookie.getCookie("isLoggedIn"));
-    console.log(typeof window.store.get("isLoggedIn"))
+    
+    console.log(window.store.get("isLoggedIn"))
   } finally {
     
   }
